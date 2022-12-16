@@ -1,12 +1,14 @@
 import os
 from datetime import timedelta
+from distutils.util import strtobool
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = "p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs"
+SECRET_KEY = os.getenv('SECRET_KEY', default="p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs")
+# Без default знечения не проходит тесты
 
-DEBUG = False
+DEBUG = strtobool(os.environ.get('DEBUG', default='False'))
 
 ALLOWED_HOSTS = ["*"]
 
@@ -86,8 +88,8 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', default='postgres'),
         'USER': os.getenv('POSTGRES_USER', default='postgres'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='postgres'),
-        'HOST': os.getenv('DB_HOST', default=''),
-        'PORT': os.getenv('DB_PORT', default=''),
+        'HOST': os.getenv('DB_HOST', default='db'),
+        'PORT': os.getenv('DB_PORT', default='5432'),
     }
 }
 

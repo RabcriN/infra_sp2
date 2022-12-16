@@ -24,7 +24,12 @@ cd infra_sp2
 cd infra
 ```
 
-Cобрать и запустить контейнеры
+Создать .env файл с необходимыми ключами:
+```
+Для заполнения .env файла воспользуйтесь шаблоном ".env.dist"
+```
+
+Cобрать и запустить контейнеры:
 ```
 docker-compose up -d --build 
 ```
@@ -53,3 +58,11 @@ http://localhost/admin/
 ```
 http://127.0.0.1:8000/redoc/
 ```
+
+Стек технологий:
+- Python 3.7 (https://docs.python.org/3/whatsnew/3.7.html)
+- Django 3.2 (https://docs.djangoproject.com/en/3.2/)
+- DRF (https://www.django-rest-framework.org/)
+- Docker / Docker-compose (https://www.docker.com/)
+- Nginx (http://nginx.org/en/docs/)
+- Postgresql (https://www.postgresql.org/docs/)
